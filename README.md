@@ -13,6 +13,55 @@ A sophisticated multi-agent AI system built with Google's Agent Development Kit 
 ## 🚀 Overview
 
 This project implements an intelligent student advisor system using Google's ADK framework. The system employs a multi-agent architecture where specialized agents handle different aspects of student inquiries, from admissions and academics to financial aid assistance.
+---
+
+## 🎬 Live Demo & Screenshots
+
+### System in Action
+
+The following screenshots demonstrate the multi-agent system handling real student queries with autonomous tool usage and intelligent routing.
+
+#### Example 1: Program Search with RAG
+![AI Program Query](Visual%20Examples/ai-program-query-demo.png)
+*Student asks about "artificial intelligence" programs. The system autonomously invokes the `search_catalog` tool and retrieves detailed program information from the 1000+ page catalog, including course requirements and credit information.*
+
+#### Example 2: System Capabilities
+![Core Functions](Visual%20Examples/system-core-functions.png)
+*The agent explains its core functions, demonstrating self-awareness of its capabilities including multi-agent coordination, personalized recommendations, and comprehensive student support.*
+
+#### Example 3: Multi-Tool Coordination
+![Medical Programs Query](Visual%20Examples/medical-programs-tool-usage.png)
+*When asked about medical programs, the system autonomously chains multiple tools: `search_catalog` → `semantic_catalog_search` → `rag_bates`, demonstrating intelligent multi-step task execution without explicit user prompts for each step.*
+
+#### Example 4: Financial Aid Routing
+![Financial Aid Response](Visual%20Examples/financial-aid-response.png)
+*Query about financial aid automatically routes to the FinancialAidAgent, which uses the `rag_bates` tool to extract specific eligibility requirements and aid types from the catalog. Notice the autonomous tool invocation (shown in the left panel).*
+
+### Key Agent Behaviors Demonstrated
+
+These screenshots illustrate the autonomous agent characteristics:
+
+**🤖 Autonomous Decision-Making:**
+- System decides which tools to invoke without being told
+- Automatically routes queries to appropriate specialist agents
+- Chains multiple tools together for complex queries
+
+**🔧 Tool Use:**
+- `search_catalog` - Basic keyword search
+- `semantic_catalog_search` - AI-powered semantic search
+- `rag_bates` - Retrieval-Augmented Generation over catalog
+
+**🎯 Goal-Oriented Behavior:**
+- Pursues the goal of answering student questions completely
+- Gathers all relevant information from catalog
+- Provides comprehensive, multi-faceted responses
+
+**🧠 Multi-Agent Coordination:**
+- Routes admissions questions to AdmissionsAgent
+- Routes financial aid questions to FinancialAidAgent
+- Routes academic questions to AcademicsAgent
+
+---
 
 **Built for:** [Google & Kaggle 5-Day AI Agents Intensive Course capstone project]
 
