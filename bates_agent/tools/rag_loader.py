@@ -1,17 +1,16 @@
 import os
-import pypdf
 from google.adk.tools.function_tool import FunctionTool
 
-CATALOG_PATH = os.path.join(
-    os.path.dirname(__file__),
-    "..",
-    "data",
-    "BatesTech2025-26Catalog.pdf"
-)
+# Import vector search to use ChromaDB instead of reading PDF every time
+try:
+    from .vector_search import vector_search
+    VECTOR_AVAILABLE = True
+except ImportError:
+    VECTOR_AVAILABLE = False
 
 def load_bates_catalog(query: str) -> dict:
     """
-    Searches the Bates Technical College catalog PDF for relevant information.
+    Searches the Bates Technical College catalog using vector database.
     
     Args:
         query (str): The search query to find relevant information in the catalog
@@ -20,32 +19,28 @@ def load_bates_catalog(query: str) -> dict:
         dict: A dictionary containing the search status and relevant catalog content
     """
     try:
-        reader = pypdf.PdfReader(CATALOG_PATH)
-        text = ""
-        
-        # Extract text from all pages
-        for page in reader.pages:
-            text += page.extract_text() or ""
+        # Use ChromaDB vector search (FAST - already indexed!)
+        if VECTOR_AVAILABLE and vector_search:
+            results = vector_search.semantic_search(query, "catalog", 5)
             
-        # Simple search for query terms in the text
-        query_lower = query.lower()
-        relevant_sections = []
-        
-        # Split text into chunks and find relevant ones
-        chunks = [text[i:i+1000] for i in range(0, len(text), 1000)]
-        for i, chunk in enumerate(chunks):
-            if query_lower in chunk.lower():
-                relevant_sections.append(f"Section {i+1}: {chunk}")
+            if results.get("status") == "success" and results.get("results"):
+                formatted_text = ""
+                for i, res in enumerate(results["results"], 1):
+                    page = res["metadata"].get("page_number", "Unknown")
+                    content = res["content"]
+                    formatted_text += f"\n[Page {page}]: {content}\n"
                 
-        if relevant_sections:
-            result_text = "\n\n".join(relevant_sections[:3])  # Limit to first 3 relevant sections
-        else:
-            result_text = text[:5000]  # Fallback to first 5000 characters
-            
+                return {
+                    "status": "success",
+                    "result": f"USER QUERY: {query}\n\nRELEVANT CATALOG CONTENT:{formatted_text}"
+                }
+        
+        # Fallback message if vector search not available
         return {
-            "status": "success",
-            "result": f"USER QUERY: {query}\n\nRELEVANT CATALOG CONTENT:\n{result_text}"
+            "status": "error", 
+            "message": "Vector search not available. Please use semantic_catalog_search tool instead."
         }
+        
     except Exception as e:
         return {
             "status": "error",

@@ -35,12 +35,8 @@ class BatesVectorSearch:
         self.programs_collection = self._get_or_create_collection("bates_programs")
         
         # Initialize embedding model
-        try:
-            self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-            logger.info("Vector search initialized with SentenceTransformer")
-        except Exception as e:
-            logger.warning(f"Could not load SentenceTransformer: {e}")
-            self.embedding_model = None
+        self.embedding_model = None
+        logger.info("Vector search initialized (embedding model will load on first use)")
     
     def _get_or_create_collection(self, name: str):
         """Get or create a ChromaDB collection"""
@@ -51,6 +47,17 @@ class BatesVectorSearch:
                 name=name,
                 metadata={"hnsw:space": "cosine"}
             )
+    def _get_embedding_model(self):
+        """Lazy load the embedding model only when actually needed"""
+        if self.embedding_model is None:
+            try:
+                logger.info("Loading SentenceTransformer model (first use)...")
+                self.embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+                logger.info("✓ Embedding model loaded successfully")
+            except Exception as e:
+                logger.error(f"Could not load SentenceTransformer: {e}")
+                self.embedding_model = None
+        return self.embedding_model
     
     @monitor_performance("catalog_indexing")
     def index_catalog_pdf(self, pdf_path: str) -> Dict[str, Any]:
