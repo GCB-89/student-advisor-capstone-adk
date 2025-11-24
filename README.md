@@ -253,11 +253,13 @@ This project demonstrates **4 core concepts** from the AI Agents Intensive Cours
 
 ---
 
-## 👤 About the Developer
+## 👤 About the Developers
 
 - 🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/cepeda-b-41b239331)
 - 📊 **Kaggle**: [View my projects](https://www.kaggle.com/cepedabraxton)
 - 💻 **GitHub**: [@GCB-89](https://github.com/GCB-89)
+
+- 💻 **GitHub**: [@xiexinchun25](https://github.com/xiexinchun25)
 
 Data Science student specializing in AI/ML, with focus on agentic systems, RAG, and MLOps.
 
