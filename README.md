@@ -216,12 +216,6 @@ Data Science student specializing in AI/ML, with focus on agentic systems, RAG, 
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 🙏 Acknowledgments
 
 - Built for the [Google & Kaggle 5-Day AI Agents Intensive Course](https://rsvp.withgoogle.com/events/google-ai-agents-intensive_2025)
