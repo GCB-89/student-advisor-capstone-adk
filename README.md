@@ -257,7 +257,7 @@ This project demonstrates **4 core concepts** from the AI Agents Intensive Cours
 
 ## 👤 About the Developer
 
-- 🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/gabreal-cepeda-b-41b239331/)
+- 🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/cepeda-b-41b239331)
 - 📊 **Kaggle**: [View my projects](https://www.kaggle.com/cepedabraxton)
 - 💻 **GitHub**: [@GCB-89](https://github.com/GCB-89)
 
