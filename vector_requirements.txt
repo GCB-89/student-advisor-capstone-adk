@@ -1,0 +1,16 @@
+# Vector Database Dependencies for Bates Agent
+# Add these to your requirements.txt or install directly
+
+# Vector Database
+chromadb>=0.4.15
+sentence-transformers>=2.2.2
+
+# Additional ML dependencies that may be needed
+torch>=2.0.0
+transformers>=4.21.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Installation commands:
+# pip install chromadb sentence-transformers
+# pip install torch --index-url https://download.pytorch.org/whl/cpu  # CPU version

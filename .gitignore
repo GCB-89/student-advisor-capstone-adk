@@ -1,0 +1,6 @@
+.env
+*.env
+bates_agent/.env
+.venv/
+__pycache__/
+logs/
