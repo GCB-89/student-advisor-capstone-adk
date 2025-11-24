@@ -260,6 +260,7 @@ This project demonstrates **4 core concepts** from the AI Agents Intensive Cours
 - 💻 **GitHub**: [@GCB-89](https://github.com/GCB-89)
 
 - 💻 **GitHub**: [@xiexinchun25](https://github.com/xiexinchun25)
+- 📊 **Kaggle**: [View my projects](https://www.kaggle.com/nellykwan)
 
 Data Science student specializing in AI/ML, with focus on agentic systems, RAG, and MLOps.
 
