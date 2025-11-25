@@ -3,7 +3,7 @@
 
 **Document Version:** 1.1  
 **Last Updated:** November 2025  
-**System:** Multi-Agent AI Student Advisor (Google ADK-based)
+**System:** Multi-Agent AI Student Advisor (Google ADK-based).
 
 ---
 
