@@ -3,6 +3,23 @@
 ## Bates Technical College Student Advisor Agent
 
 Complete installation and deployment guide for Windows Server 2025 environments.
+## Installation Options
+
+Choose one of the following methods:
+
+### Option A: Automated Installation (Recommended for Quick Setup)
+Run the automated PowerShell script:
+```powershell
+# Download and run the installer
+.\Install-BatesAdvisor.ps1
+```
+
+This script automatically handles Docker installation, repository cloning, 
+firewall configuration, and environment setup.
+
+### Option B: Manual Installation (Recommended for Learning/Troubleshooting)
+Follow the detailed step-by-step guide below if you want to understand 
+each component or need to customize the installation.
 
 ---
 
