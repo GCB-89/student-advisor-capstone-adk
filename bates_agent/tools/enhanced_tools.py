@@ -79,72 +79,16 @@ class EnhancedBatesTools:
                         "search_method": "vector_semantic"
                     }
             
-            # Fallback to traditional PDF search
-            pdf_path = os.path.join(os.path.dirname(__file__), "..", "data", "BatesTech2025-26Catalog.pdf")
-            reader = pypdf.PdfReader(pdf_path)
-            
-            # Search strategy based on type
-            search_strategies = {
-                "program": ["program", "certificate", "degree", "major", "track"],
-                "course": ["course", "class", "credit", "prerequisite", "corequisite"],
-                "policy": ["policy", "procedure", "rule", "regulation", "requirement"],
-                "general": []
-            }
-            
-            keywords = search_strategies.get(search_type, [])
-            results = []
-            
-            for page_num, page in enumerate(reader.pages):
-                text = page.extract_text() or ""
-                text_lower = text.lower()
-                query_lower = query.lower()
-                
-                # Calculate relevance score
-                score = text_lower.count(query_lower) * 3
-                
-                # Add keyword bonuses
-                for keyword in keywords:
-                    if keyword in text_lower:
-                        score += 2
-                
-                # Look for structured information
-                if any(marker in text for marker in ["Program:", "Course:", "Policy:"]):
-                    score += 1
-                    
-                if score > 0:
-                    # Extract relevant snippet
-                    sentences = text.split('.')
-                    relevant_sentences = []
-                    
-                    for sentence in sentences:
-                        if query_lower in sentence.lower():
-                            # Get surrounding context
-                            idx = sentences.index(sentence)
-                            start = max(0, idx - 1)
-                            end = min(len(sentences), idx + 2)
-                            context = '. '.join(sentences[start:end])
-                            relevant_sentences.append(context)
-                    
-                    snippet = ' [...] '.join(relevant_sentences[:2]) if relevant_sentences else text[:500]
-                    
-                    results.append({
-                        "page": page_num + 1,
-                        "score": score,
-                        "snippet": snippet,
-                        "search_type": search_type
-                    })
-            
-            # Sort by relevance
-            results.sort(key=lambda x: x["score"], reverse=True)
-            
+            # No vector results found
             self.metrics.increment_counter("enhanced_catalog_searches")
             
             return {
-                "status": "success",
+                "status": "info",
                 "query": query,
                 "search_type": search_type,
-                "total_results": len(results),
-                "top_results": results[:5],
+                "total_results": 0,
+                "top_results": [],
+                "message": "No results found. Try rephrasing your query.",
                 "timestamp": datetime.now().isoformat()
             }
             

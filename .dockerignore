@@ -1,0 +1,63 @@
+# =============================================================================
+# Docker Ignore File - Bates Agent
+# =============================================================================
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Logs (will be generated fresh in container)
+logs/
+*.log
+
+# Local environment files (use Docker secrets instead)
+.env
+*.env.local
+
+# Documentation (not needed in production image)
+*.md
+!README.md
+Visual Examples/
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# ChromaDB local data (will be regenerated or mounted)
+chroma_db/
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/

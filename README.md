@@ -16,9 +16,11 @@ This project implements an intelligent student advisor system using Google's ADK
 
 ## 🎬 Live Demo & Screenshots
 
+https://github.com/user-attachments/assets/c9321c92-2c01-495a-8c5b-2f101355b6dd
+
 ### System in Action
 
-The following screenshots demonstrate the multi-agent system handling real student queries with autonomous tool usage and intelligent routing.
+The following screenshots further demonstrate the multi-agent system handling real student queries with autonomous tool usage and intelligent routing.
 
 #### Example 1: Program Search with RAG
 ![AI Program Query](Visual%20Examples/ai-program-query-demo.png)
