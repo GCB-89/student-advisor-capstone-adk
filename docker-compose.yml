@@ -1,0 +1,38 @@
+# =============================================================================
+# Docker Compose - Bates Technical College Student Advisor Agent
+# =============================================================================
+# Usage:
+#   docker-compose up --build     # Build and start
+#   docker-compose down           # Stop and remove
+#   docker-compose logs -f        # View logs
+# =============================================================================
+
+version: '3.8'
+
+services:
+  bates-advisor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bates-student-advisor
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Persist vector database
+      - vector_data:/app/bates_agent/data/vector_db
+      # Persist logs
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  vector_data:
+    driver: local
