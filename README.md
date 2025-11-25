@@ -4,6 +4,8 @@
 [![Google ADK](https://img.shields.io/badge/Google-ADK-4285F4.svg)](https://developers.google.com/adk)
 [![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat&logo=Kaggle&logoColor=white)](https://www.kaggle.com/cepedabraxton)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cepeda-b-41b239331)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nelly-kosasih-2135b413b)
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=flat&logo=Kaggle&logoColor=white)](https://www.kaggle.com/nellykwan)
 
 A sophisticated multi-agent AI system built with Google's Agent Development Kit (ADK) to provide comprehensive educational assistance for Bates Technical College students. This capstone project demonstrates advanced AI agent architecture with specialized routing and enhanced educational tools.
 
